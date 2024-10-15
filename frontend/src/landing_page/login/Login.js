@@ -45,7 +45,7 @@ export default function Login() {
         console.log("User saved to cookie:", JSON.parse(Cookies.get('user')));
 
 
-        window.location.href = 'http://localhost:3000/';// Redirect to home page on success
+        window.location.href = 'https://marketintel1.onrender.com';// Redirect to home page on success
       } else {
         setErrorMessage(response.data.message); // Set error message from response
       }

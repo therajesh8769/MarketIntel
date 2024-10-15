@@ -42,7 +42,7 @@ app.listen(PORT,()=>
 
 app.use(
     cors({
-      origin: ["http://localhost:3001","http://localhost:3000"],
+      origin: ["https://marketintel1.onrender.com","http://localhost:3000"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
     })
