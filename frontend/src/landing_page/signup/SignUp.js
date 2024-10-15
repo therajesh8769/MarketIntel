@@ -34,7 +34,7 @@ export default function Signup() {
     setErrorMessage('');
     try {
       // Send signup request
-      const response = await axios.post('http://localhost:8080/signup', user);
+      const response = await axios.post('https://marketintel-2r6w.onrender.com/signup', user);
       if (response.data.success) {
         login();
         const {email,id,username}=response.data.user;
