@@ -1,0 +1,30 @@
+.footer-body
+{
+    background-color: rgb(238, 241, 241);
+}
+.footerLink {
+    text-decoration: none;
+    color: rgb(122, 117, 117);
+
+    font-size: medium;
+
+    
+    transition: color 0.3s !important;
+
+
+}
+    .footerLink:hover {
+        color: rgb(50, 50, 152) !important;
+
+
+    }
+
+    .ul {
+        list-style-type: none;
+    }
+    .footerPara
+    {
+        font-weight: 400 !important;
+        font-size:x-small;
+        
+    }

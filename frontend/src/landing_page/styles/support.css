@@ -1,0 +1,44 @@
+.row-container {
+    display: flex;
+    font-weight: 500;
+    font-size: medium;
+    justify-content: space-between; /* Aligns items to left and right */
+    width: 100%; /* Ensures the container takes up the full width */
+}
+.searchBox
+{
+   
+    width: 100%;
+    padding: 8px;
+}
+.column1
+{
+    padding-right: 50px;
+}
+.support_hero
+{
+    background-color: #448EE4;
+    color:white;
+    padding-top: 20px;
+    padding-bottom: 90px;
+    font-size: large;
+    
+}
+.supportLink {
+    color:white !important;
+   
+  font-weight: 500;
+    text-decoration: none; /* Remove default underline */
+    position: relative; /* Position for the custom underline */
+}
+
+.supportLink::after {
+    content: '';
+   
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust the space between the text and the underline */
+    width: 100%;
+    height: 1px; /* Set the thickness of the underline */
+    background-color: rgb(238, 237, 237); /* Customize the underline color */
+}

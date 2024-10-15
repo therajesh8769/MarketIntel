@@ -1,0 +1,10 @@
+.Link {
+    color: black !important;
+    transition: color 0.3s !important;
+    
+  }
+  
+  .Link:hover {
+    color: rgb(50, 50, 152) !important;
+  }
+  

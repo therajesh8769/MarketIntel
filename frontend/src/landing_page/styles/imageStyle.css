@@ -1,0 +1,12 @@
+.rounded_img {
+    width: 200px;
+    height: 200px;
+    
+    border-radius: 60% !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease;
+    
+}
+.rounded_img:hover{
+    transform: scale(1.2);
+}

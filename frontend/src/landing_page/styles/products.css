@@ -1,0 +1,34 @@
+.products_links
+{
+    margin-left: 75px;
+    
+}
+.rightText
+{
+    width:400px;
+    margin-top: 100px;
+    margin-right: 90px;
+
+
+
+}
+.product_text
+{
+    margin-top: 100px;
+}
+.universeImage
+{
+    width:200px;
+}
+.universe-text
+{
+   width: 300px;
+   margin-left: 100px;
+   text-align: center;
+   font-size: x-small;
+   margin-top: 15px;
+   margin-bottom: 15px;
+   text-decoration: none;
+   color: rgb(94, 92, 92);
+   display: block;
+}
