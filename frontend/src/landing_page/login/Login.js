@@ -32,7 +32,7 @@ export default function Login() {
 
     try {
       // Send login request
-      const response = await axios.post('http://localhost:8080/login', user);
+      const response = await axios.post('https://marketintel-2r6w.onrender.com/login', user);
 
       // Check for success in response data
       if (response.data.success) {
