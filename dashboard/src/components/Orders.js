@@ -6,14 +6,21 @@ const Orders = () => {
   const [allOrders, setAllOrders] = useState([]);
   const [loading, setLoading] = useState(true); // State to handle loading
   const [error, setError] = useState(null); // State to handle errors
-  const userCookie = Cookies.get('user');
+ 
   
-  let user=null;
+  let user="null";
+   
+   
+
   try {
-    user = userCookie ? JSON.parse(userCookie) : null; // Check if user exists
+    const userDataString = localStorage.getItem('userData');
+    user = userDataString ? JSON.parse(userDataString) : null;
+    
   } catch (error) {
     console.error("Error parsing user from cookies:", error);
-    
+  }
+  if (!user) {
+    console.log("user dont exits") // Don't fetch holdings if the user is not logged in
   }
   const [errorMessage, setErrorMessage] = useState("");
   useEffect(() => {

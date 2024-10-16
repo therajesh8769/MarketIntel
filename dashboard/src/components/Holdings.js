@@ -9,18 +9,19 @@ const Holdings = ({ responseData }) => {
   console.log(responseData,"response data in hold");
 
   useEffect(() => {
-    const userCookie = Cookies.get("user");
-    let user = null;
+    let user="null";
+   
+   
 
     try {
-      user = userCookie ? JSON.parse(userCookie) : null;
+      const userDataString = localStorage.getItem('userData');
+      user = userDataString ? JSON.parse(userDataString) : null;
+      
     } catch (error) {
       console.error("Error parsing user from cookies:", error);
     }
-
     if (!user) {
-      setErrorMessage("Please login to proceed");
-      return;
+      console.log("user dont exits") // Don't fetch holdings if the user is not logged in
     }
 
     const fetchHoldings = async () => {

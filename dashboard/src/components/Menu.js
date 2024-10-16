@@ -11,16 +11,19 @@ const Menu = () => {
   
 
   useEffect(() => {
-    const userCookie = Cookies.get('user');
-    if (userCookie) {
-      try {
-        const parsedUser = JSON.parse(userCookie);
-        setUser(parsedUser);
-        
-      } catch (error) {
-        console.error('Error parsing user cookie:', error);
-      }
-    }
+    
+    let user = null;
+
+  try {
+    const userDataString = localStorage.getItem('userData');
+    user = userDataString ? JSON.parse(userDataString) : null;
+    
+  } catch (error) {
+    console.error("Error parsing user from cookies:", error);
+  }
+  if (!user) {
+    console.log("user dont exits") // Don't fetch holdings if the user is not logged in
+  }
   }, []);
 
   const handleMenuClick = (index) => {
@@ -34,9 +37,10 @@ const Menu = () => {
   const handleLogout = async () => {
     try {
       await axios.post('https://marketintel-2r6w.onrender.com/logout');
-      Cookies.remove('user');
+      localStorage.removeItem('userData');
+       
       Cookies.remove('token');
-      Window.location.herf="https://marketintel1.onrender.com"
+      Window.location.href="https://marketintel1.onrender.com"
     } catch (error) {
       console.error('Logout failed', error);
       setErrorMessage("Logout failed");

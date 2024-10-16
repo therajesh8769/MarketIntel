@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Row, Col, Form, Button, Card, Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth } from '../../context/AuthContext';
-import Cookies from "js-cookie";
+
 
 
 export default function Login() {
@@ -28,11 +28,11 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
-    setSuccessMessage(''); // Clear previous messages
+    setSuccessMessage('');
 
     try {
       const response = await axios.post(
-        'https://marketintel-2r6w.onrender.com/login', 
+        'https://marketintel-2r6w.onrender.com/login',
         user,
         {
           withCredentials: true,
@@ -41,37 +41,41 @@ export default function Login() {
           }
         }
       );
-      // Check for success in response data
+
       if (response.data.success) {
         const { id, email, username } = response.data.user;
-        console.log("User Info:",id,email,username);
-         // Set success message
+        console.log("User Info:", id, email, username);
 
-         Cookies.set('user', JSON.stringify({ id, email, username }), {
-          domain: '.onrender.com',  // Share across subdomains
-          path:"/",
-          expires: 100,
-          secure: true,            // Required for cross-domain
-          sameSite: 'none',        // Allow cross-site usage
-        });
-        console.log("User saved to cookie:", JSON.parse(Cookies.get('user')));
-        login({id,username,email}); // Call login function from context
+        // Store user data in localStorage
+        const userData = { id, email, username };
+        localStorage.setItem('userData', JSON.stringify(userData));
+        
+        // Verify data was stored correctly
+        console.log("User saved to localStorage:", JSON.parse(localStorage.getItem('userData')));
+        
+        login(); // Call login function from context
         setSuccessMessage('Login successful!');
 
-        window.location.href = 'https://dashboard-hj5i.onrender.com';// Redirect to home page on success
+        // Redirect to dashboard with user data in URL parameters
+        const dashboardURL = new URL('https://dashboard-hj5i.onrender.com');
+        dashboardURL.searchParams.set('userData', JSON.stringify(userData));
+        window.location.href = dashboardURL.toString();
+
       } else {
-        setErrorMessage(response.data.message); // Set error message from response
+        setErrorMessage(response.data.message);
       }
     } catch (error) {
       console.error("Error Response:", error);
-      // Check if error response contains a specific message
-      if (error.response && error.response.data && error.response.data.message) {
-        setErrorMessage(error.response.data.message); // Show backend error message
+      if (error.response?.data?.message) {
+        setErrorMessage(error.response.data.message);
       } else {
         setErrorMessage('Something went wrong. Please try again.');
       }
     }
   };
+
+  
+
 
   return (
     <Container fluid className="bg-light min-vh-100 d-flex align-items-center justify-content-center py-5">

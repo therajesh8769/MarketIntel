@@ -2,13 +2,21 @@ import React from "react";
 import Cookies from "js-cookie";
 
 const Summary = () => {
-   const userCookie = Cookies.get('user');
+   
    let user="null";
    
-   if(userCookie)
-   {
-     user=JSON.parse(userCookie);
-   }
+   
+
+  try {
+    const userDataString = localStorage.getItem('userData');
+    user = userDataString ? JSON.parse(userDataString) : null;
+    
+  } catch (error) {
+    console.error("Error parsing user from cookies:", error);
+  }
+  if (!user) {
+    console.log("user dont exits") // Don't fetch holdings if the user is not logged in
+  }
  console.log(user);
   return (
     <>

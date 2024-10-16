@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import GeneralContext from "./GeneralContext";
 
 import "./BuyActionWindow.css";
-const userCookie = Cookies.get('user');
+
 const BuyActionWindow = ({ uid }) => {
   const [stockQuantity, setStockQuantity] = useState(1);
   const [stockPrice, setStockPrice] = useState(0.0);
@@ -15,7 +15,9 @@ const BuyActionWindow = ({ uid }) => {
   let user = null;
 
   try {
-    user = userCookie ? JSON.parse(userCookie) : null; // Check if user exists
+    const userDataString = localStorage.getItem('userData');
+    user = userDataString ? JSON.parse(userDataString) : null;
+    //window.location.href = 'https://marketintel1r6w.onrender.com/login';
   } catch (error) {
     console.error("Error parsing user from cookies:", error);
   }
@@ -23,8 +25,10 @@ const BuyActionWindow = ({ uid }) => {
     console.log("user dont exits") // Don't fetch holdings if the user is not logged in
   }
 
-  const userId=user.id;
+  
+  const userId = user.id;
   const handleBuyClick = async() => {
+
     await axios.post("https://marketintel-2r6w.onrender.com/newOrder", {
       userId:userId,
       name: uid,
