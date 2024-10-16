@@ -2,7 +2,13 @@ import React from "react";
 import Cookies from "js-cookie";
 
 const Summary = () => {
-   const user = JSON.parse(Cookies.get('user'));
+   const userCookie = Cookies.get('user');
+   let user="null";
+   
+   if(userCookie)
+   {
+     user=JSON.parse(userCookie);
+   }
  console.log(user);
   return (
     <>
