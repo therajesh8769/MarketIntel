@@ -23,7 +23,7 @@ const Orders = () => {
         setErrorMessage("Please login to proceed");
       }
       try {
-        const res = await axios.get(`http://localhost:8080/allOrders`, {params: { id: user.id },withCredentials: true,
+        const res = await axios.get(`https://marketintel-2r6w.onrender.com/allOrders`, {params: { id: user.id },withCredentials: true,
         });
         console.log(res.data);
         // Check if the response data is an array

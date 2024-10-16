@@ -25,7 +25,7 @@ const Holdings = ({ responseData }) => {
 
     const fetchHoldings = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/allHoldings`, {
+        const res = await axios.get(`https://marketintel-2r6w.onrender.com/allHoldings`, {
           params: { id: user.id },
           withCredentials: true,
 
@@ -35,7 +35,7 @@ const Holdings = ({ responseData }) => {
         // Ensure the response data is an array
         if (Array.isArray(res.data)) {
           setAllHoldings(res.data);
-          console.log("Fetched holdings:", res.data); 
+         
         } else {
           setAllHoldings([]);
         }

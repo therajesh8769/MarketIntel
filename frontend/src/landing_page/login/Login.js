@@ -50,7 +50,7 @@ export default function Login() {
          Cookies.set('user', JSON.stringify({ id, email, username }), {
           domain: '.onrender.com',  // Share across subdomains
          
-          expires: 7,
+          expires: 100,
           secure: true,            // Required for cross-domain
           sameSite: 'none',        // Allow cross-site usage
         });

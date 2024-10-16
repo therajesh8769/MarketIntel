@@ -25,7 +25,7 @@ const BuyActionWindow = ({ uid }) => {
 
   const userId=user.id;
   const handleBuyClick = async() => {
-    await axios.post("http://localhost:8080/newOrder", {
+    await axios.post("https://marketintel-2r6w.onrender.com/newOrder", {
       userId:userId,
       name: uid,
       qty: stockQuantity,

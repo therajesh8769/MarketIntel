@@ -10,7 +10,7 @@ const Positions = () => {
   const [allPositions, setAllPositions] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/allPositions",{ withCredentials: true }).then((res) => {
+    axios.get("https://marketintel-2r6w.onrender.com/allPositions",{ withCredentials: true }).then((res) => {
        console.log(res.data);
       setAllPositions(res.data);
     });
