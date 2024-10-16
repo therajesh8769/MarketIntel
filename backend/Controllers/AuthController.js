@@ -18,6 +18,9 @@ module.exports.Signup = async (req, res, next) => {
       res.cookie("token", token, {
         withCredentials: true,
         httpOnly: false,
+        sameSite: 'None' ,
+        secure: process.env.NODE_ENV === 'production',
+        domain: '.onrender.com',
       });
       res
         .status(201)
