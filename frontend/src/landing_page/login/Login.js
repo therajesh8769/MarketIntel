@@ -31,19 +31,32 @@ export default function Login() {
     setSuccessMessage(''); // Clear previous messages
 
     try {
-      // Send login request
-      const response = await axios.post('https://marketintel-2r6w.onrender.com/login', user);
-
+      const response = await axios.post(
+        'https://marketintel-2r6w.onrender.com/login', 
+        user,
+        {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
       // Check for success in response data
       if (response.data.success) {
         const { id, email, username } = response.data.user;
         console.log("User Info:",id,email,username);
-        login(); // Call login function from context
-        setSuccessMessage('Login successful!'); // Set success message
+         // Set success message
 
-        Cookies.set('user', JSON.stringify({ id, email, username }));
+         Cookies.set('user', JSON.stringify({ id, email, username }), {
+          domain: '.onrender.com',  // Share across subdomains
+          path: '/',
+          expires: 7,
+          secure: true,            // Required for cross-domain
+          sameSite: 'none',        // Allow cross-site usage
+        });
         console.log("User saved to cookie:", JSON.parse(Cookies.get('user')));
-
+        login(); // Call login function from context
+        setSuccessMessage('Login successful!');
 
         window.location.href = 'https://dashboard-hj5i.onrender.com';// Redirect to home page on success
       } else {
