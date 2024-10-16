@@ -33,10 +33,10 @@ const Menu = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:8080/logout');
+      await axios.post('https://marketintel-2r6w.onrender.com/logout');
       Cookies.remove('user');
       Cookies.remove('token');
-      Window.location.herf="http://localhost:3001/"
+      Window.location.herf="https://marketintel1.onrender.com"
     } catch (error) {
       console.error('Logout failed', error);
       setErrorMessage("Logout failed");

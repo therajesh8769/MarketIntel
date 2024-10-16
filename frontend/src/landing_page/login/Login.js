@@ -49,13 +49,13 @@ export default function Login() {
 
          Cookies.set('user', JSON.stringify({ id, email, username }), {
           domain: '.onrender.com',  // Share across subdomains
-          path: '/',
+         
           expires: 7,
           secure: true,            // Required for cross-domain
           sameSite: 'none',        // Allow cross-site usage
         });
         console.log("User saved to cookie:", JSON.parse(Cookies.get('user')));
-        login(); // Call login function from context
+        login({id,username,email}); // Call login function from context
         setSuccessMessage('Login successful!');
 
         window.location.href = 'https://dashboard-hj5i.onrender.com';// Redirect to home page on success

@@ -45,6 +45,7 @@ app.use(
       origin: ["https://marketintel1.onrender.com","https://dashboard-hj5i.onrender.com"],
       methods: ["GET", "POST", "PUT", "DELETE"],
       credentials: true,
+      
     })
   );
 
