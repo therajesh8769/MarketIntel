@@ -126,7 +126,7 @@ export default function Login() {
             Don't have an account? <Link to="/signup" style={{ textDecoration: "none" }}>Signup</Link>
           </p>
           <p className="text-center text-muted mt-4 fs-6">
-            &copy;2023 Zerodha. All rights reserved.
+            &copy;2023 MarketIntel. All rights reserved.
           </p>
         </Col>
       </Row>

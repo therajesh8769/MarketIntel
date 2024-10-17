@@ -19,11 +19,10 @@ function Hero() {
             <hr></hr>
             <div className='row mx-3 my-5'>
                 <div className='col-12 col-md-6 text-muted fs-6'>
-                    <p >We kick-started operations on the 15th of August,
-                        2010 with the goal of breaking all barriers that traders and investors face in India in terms of cost,
+                    <p >We kick-started operations on the 18th of October,
+                        2024 with the goal of breaking all barriers that traders and investors face in India in terms of cost,
                         support, and technology.
-                        We named the company Zerodha, a combination of Zero and "Rodha",
-                        the Sanskrit word for barrier.</p>
+                        We named the company MarketIntel.</p>
 
                         <p>Today, our disruptive pricing models and in-house technology have made us the biggest stock broker in India.</p>
 
@@ -56,13 +55,13 @@ function Hero() {
               </div>
               <div className='col-12 col-md-8 fs-6'>
                 <p>
-                Rajesh bootstrapped and developed this website in 2010 to overcome the hurdles he faced during his decade long stint as developer.
+                Rajesh bootstrapped and developed this website  to overcome the hurdles he faced during his decade long stint as developer.
                 </p>
                 <p>
                 He is a student of Indian Institute of Engineering Science and Technology,Shibpur.He is passionate about the coding and developing solution for new age problems.
                 </p>
                 <p>
-                    Connect on <a href='https.//www.instagram.com/hy_raj_26/' style={{textDecoration:'none'}}>Instagram</a> / <a href='https://x.com/hy_raj_26' style={{textDecoration:'none'}}>Twitter</a> / <a href='https://www.linkedin.com/in/hyraj26/' style={{textDecoration:'none'}}>linkedin</a>
+                    Connect on <a href='https.//www.instagram.com/hy_raj_26/' target="_blank" rel="noopener noreferrer"  style={{textDecoration:'none'}}>Instagram</a> / <a href='https://x.com/hy_raj_26' target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>Twitter</a> / <a href='https://www.linkedin.com/in/hyraj26/' target="_blank" rel="noopener noreferrer" style={{textDecoration:'none'}}>linkedin</a>
                 </p>
 
               </div>

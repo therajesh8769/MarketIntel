@@ -8,7 +8,7 @@ function Footer() {
                     <div className='col-12 col-md-3'>
                     <h2 style={{color:"#2a9df4", fontFamily:"PT Serif"}}>MarketIntel</h2>
                         <p className='text-body-secondary' style={{ fontSize: '13px' }}>
-                            © 2015 - 2024, MarketIntel Broking Ltd.
+                            ©2024, MarketIntel Broking Ltd.
                         </p>
                         <p className='text-body-secondary ' style={{ fontSize: '13px' }}>
                             All rights reserved.
