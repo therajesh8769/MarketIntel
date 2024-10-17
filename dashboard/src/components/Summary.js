@@ -1,23 +1,73 @@
 import React from "react";
-import Cookies from "js-cookie";
+import { useEffect, useState } from 'react';
+
 
 const Summary = () => {
-   
-   let user="null";
-   
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Try to get user data from URL first
+    const params = new URLSearchParams(window.location.search);
+    const urlUserData = params.get('userData');
+
+    if (urlUserData) {
+      try {
+        // Parse URL data and save to localStorage
+        const userData = JSON.parse(decodeURIComponent(urlUserData));
+        localStorage.setItem('userData', JSON.stringify(userData));
+        setUser(userData);
+        
+        // Clean up URL after getting data
+        window.history.replaceState({}, document.title, window.location.pathname);
+      } catch (error) {
+        console.error("Error parsing URL user data:", error);
+      }
+    }
+
+    // If no URL data, try localStorage
+    if (!urlUserData) {
+      try {
+        const localUserData = localStorage.getItem('userData');
+        if (localUserData) {
+          const userData = JSON.parse(localUserData);
+          setUser(userData);
+          console.log("User data loaded from localStorage:", userData);
+        } else {
+          console.log("No user data found in localStorage");
+          // Optionally redirect to login
+          // window.location.href = 'https://marketintel1.onrender.com/login';
+        }
+      } catch (error) {
+        console.error("Error parsing localStorage user data:", error);
+      }
+    }
+
+    setIsLoading(false);
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  
+
+  // Now you can use user.id, user.email, user.username
+  
    
 
-  try {
-    const userDataString = localStorage.getItem('userData');
-    user = userDataString ? JSON.parse(userDataString) : null;
-    
-  } catch (error) {
-    console.error("Error parsing user from cookies:", error);
-  }
-  if (!user) {
-    console.log("user dont exits") // Don't fetch holdings if the user is not logged in
-  }
- console.log(user);
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
     
