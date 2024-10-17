@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const companies = ["AAPL", "GOOGL"];
+        const companies = ["AAPL", "GOOGL","NVDA","MSFT","JPM","TSLA","WMT","XOM","AVGO","AMZN","JNJ","V","META","PG"];
         const apiKey = process.env.REACT_APP_API_KEY;
         //process.env.REACT_APP_API_KEY;
         console.log(apiKey);
