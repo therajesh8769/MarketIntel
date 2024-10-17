@@ -4,7 +4,7 @@ import{BrowserRouter,Routes,Route} from 'react-router-dom';
 import './index.css';
 import Homepage from './landing_page/home/Homepage';
 import Signup from'./landing_page/signup/SignUp.js';
-import PricingPage from './landing_page/pricing/PricingPage.js';
+
 import AboutPage from './landing_page/about/AboutPage.js';
 import ProductPage from './landing_page/products/ProductPage.js';
 import SupportPage from './landing_page/support/SupportPage.js';
@@ -28,7 +28,7 @@ root.render(
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/about' element={<AboutPage/>}></Route>
         <Route path='/products' element={<ProductPage/>}></Route>
-        <Route path='/pricing' element={<PricingPage/>}></Route>
+       
         <Route path='/support' element={<SupportPage/>}></Route>
         <Route path='*' element={<Notfound/>}></Route>
 
