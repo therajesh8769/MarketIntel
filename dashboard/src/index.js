@@ -16,7 +16,7 @@ const App = () => {
         const companies = ["AAPL", "GOOGL","NVDA","MSFT","JPM","TSLA","WMT","XOM","AVGO","AMZN","JNJ","V","META","PG"];
         const apiKey = process.env.REACT_APP_API_KEY;
         //process.env.REACT_APP_API_KEY;
-        console.log(apiKey);
+        
         const symbols = companies.join(",");
 
         const response = await axios.get(
@@ -25,7 +25,7 @@ const App = () => {
 
         const data = response.data;
         setResponseData(data); // Store the response data in state
-        console.log(data);
+        
       } catch (err) {
         setError("Error fetching stock data"); // Handle errors
       } finally {

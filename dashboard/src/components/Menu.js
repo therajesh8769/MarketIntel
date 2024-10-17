@@ -19,7 +19,7 @@ const Menu = () => {
       if (localUserData) {
         const userData = JSON.parse(localUserData);
         setUser(userData);
-        console.log("User data loaded from localStorage:", userData);
+       
       } else {
         console.log("No user data found in localStorage");
         // Optionally redirect to login

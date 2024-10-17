@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { VerticalGraph } from "./VerticalGraph";
-import Cookies from "js-cookie";
+
 
 const Holdings = ({ responseData }) => {
   const [allHoldings, setAllHoldings] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  console.log(responseData,"response data in hold");
-
+ 
   useEffect(() => {
     let user="null";
    
