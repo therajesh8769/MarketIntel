@@ -13,7 +13,7 @@ const App = () => {
   useEffect(() => {
     const fetchStockData = async () => {
       try {
-        const companies = ["AAPL", "GOOGL","NVDA","MSFT","JPM","TSLA","WMT","XOM","AVGO","AMZN","JNJ","V","META","PG"];
+        const companies = ["AAPL", "GOOGL", "NVDA", "MSFT","JPM","TSLA","WMT"];
         const apiKey = process.env.REACT_APP_API_KEY;
         //process.env.REACT_APP_API_KEY;
         
@@ -25,7 +25,7 @@ const App = () => {
 
         const data = response.data;
         setResponseData(data); // Store the response data in state
-        
+        console.log(response);
       } catch (err) {
         setError("Error fetching stock data"); // Handle errors
       } finally {
