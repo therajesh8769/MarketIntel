@@ -40,16 +40,23 @@ const Menu = () => {
 
   const handleLogout = async () => {
     try {
+      // Make API call to logout
       await axios.post('https://marketintel-2r6w.onrender.com/logout');
+      
+      // Clear localStorage
       localStorage.removeItem('userData');
       localStorage.removeItem('token');
-       
-     // Cookies.remove('token');
-      Window.location.href="https://marketintel1.onrender.com"
+      
+      // Redirect (corrected Window to window)
+      window.location.href = "https://marketintel1.onrender.com";
     } catch (error) {
-      console.error('Logout failed', error);
+      console.error('Logout failed:', error);
       setErrorMessage("Logout failed");
-
+      
+      // Even if API call fails, clear local storage and redirect
+      localStorage.removeItem('userData');
+      localStorage.removeItem('token');
+      window.location.href = "https://marketintel1.onrender.com";
     }
   };
 
@@ -86,7 +93,7 @@ const Menu = () => {
         <hr />
         <div className="profile" onClick={handleProfileClick}>
           <div className="avatar">
-            {user && user.username ? user.username.charAt(0).toUpperCase() : 'U'}
+            {user? user.username.charAt(0).toUpperCase() : 'U'}
           </div>
         </div>
         <button 
