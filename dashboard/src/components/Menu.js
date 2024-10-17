@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Cookies from "js-cookie";
+
 import axios from 'axios';
 
 const Menu = () => {
@@ -12,18 +12,22 @@ const Menu = () => {
 
   useEffect(() => {
     
-    let user = null;
-
-  try {
-    const userDataString = localStorage.getItem('userData');
-    user = userDataString ? JSON.parse(userDataString) : null;
     
-  } catch (error) {
-    console.error("Error parsing user from cookies:", error);
-  }
-  if (!user) {
-    console.log("user dont exits") // Don't fetch holdings if the user is not logged in
-  }
+
+    try {
+      const localUserData = localStorage.getItem('userData');
+      if (localUserData) {
+        const userData = JSON.parse(localUserData);
+        setUser(userData);
+        console.log("User data loaded from localStorage:", userData);
+      } else {
+        console.log("No user data found in localStorage");
+        // Optionally redirect to login
+        // window.location.href = 'https://marketintel1.onrender.com/login';
+      }
+    } catch (error) {
+      console.error("Error parsing localStorage user data:", error);
+    }
   }, []);
 
   const handleMenuClick = (index) => {
@@ -38,12 +42,14 @@ const Menu = () => {
     try {
       await axios.post('https://marketintel-2r6w.onrender.com/logout');
       localStorage.removeItem('userData');
+      localStorage.removeItem('token');
        
-      Cookies.remove('token');
+     // Cookies.remove('token');
       Window.location.href="https://marketintel1.onrender.com"
     } catch (error) {
       console.error('Logout failed', error);
       setErrorMessage("Logout failed");
+
     }
   };
 
@@ -80,7 +86,7 @@ const Menu = () => {
         <hr />
         <div className="profile" onClick={handleProfileClick}>
           <div className="avatar">
-            {user && user.username ? user.username.charAt(0).toUpperCase() : '?'}
+            {user && user.username ? user.username.charAt(0).toUpperCase() : 'U'}
           </div>
         </div>
         <button 
