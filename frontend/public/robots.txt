@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://marketintel.io/sitemap.xml
